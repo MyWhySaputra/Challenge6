@@ -34,7 +34,7 @@ router.post('/auth/create', Create)
 
 /**
  * @swagger
- * /api/v1/users/login:
+ * /api/v1/auth/login:
  *   post:
  *     tags:
  *      - "Auth"
