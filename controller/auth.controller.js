@@ -23,7 +23,7 @@ async function Create(req, res) {
 
     if (emailUser) {
         let resp = ResponseTemplate(null, 'Email already exist', null, 404)
-        res.json(resp)
+        res.status(404).json(resp)
         return
     }
 
@@ -45,12 +45,12 @@ async function Create(req, res) {
         });
 
         let resp = ResponseTemplate(userView, 'success', null, 200)
-        res.json(resp);
+        res.status(200).json(resp);
         return
 
     } catch (error) {
         let resp = ResponseTemplate(null, 'internal server error', error, 500)
-        res.json(resp)
+        res.status(500).json(resp)
         return
 
     }
@@ -69,7 +69,7 @@ async function Login(req, res) {
 
         if (checkUser === null) {
             let resp = ResponseTemplate(null, 'email is not found or incorrect', null, 400)
-            res.json(resp)
+            res.status(400).json(resp)
             return
         }
 
@@ -77,7 +77,7 @@ async function Login(req, res) {
 
         if (!checkPassword) {
             let resp = ResponseTemplate(null, 'password is not correct', null, 400)
-            res.json(resp)
+            res.status(400).json(resp)
             return
         }
 
@@ -87,12 +87,12 @@ async function Login(req, res) {
         }, process.env.SECRET_KEY);
 
         let resp = ResponseTemplate(token, 'success', null, 200)
-        res.json(resp)
+        res.status(200).json(resp)
         return
 
     } catch (error) {
         let resp = ResponseTemplate(null, 'internal server error', error, 500)
-        res.json(resp)
+        res.status(500).json(resp)
         return
     }
 }
