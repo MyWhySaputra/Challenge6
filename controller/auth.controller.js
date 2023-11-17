@@ -38,7 +38,6 @@ async function Create(req, res) {
                 email: payload.email
             },
             select: {
-                id: true,
                 name: true,
                 email: true
             },
