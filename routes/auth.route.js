@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { Create, Login } = require('../controller/auth.controller')
+const { CheckLogin, CheckRegister } = require('../middleware/middleware')
 
 /**
  * @swagger
@@ -30,7 +31,7 @@ const { Create, Login } = require('../controller/auth.controller')
  *       500:
  *         description: Internal server error
  */
-router.post('/auth/create', Create)
+router.post('/auth/create', CheckRegister, Create)
 
 /**
  * @swagger
@@ -56,7 +57,7 @@ router.post('/auth/create', Create)
  *       400:
  *         description: Bad request
  */
-router.post('/auth/login', Login)
+router.post('/auth/login', CheckLogin, Login)
 
 
 module.exports = router
