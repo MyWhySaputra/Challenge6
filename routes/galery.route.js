@@ -6,13 +6,13 @@ const { Auth } = require('../middleware/middleware')
 const multer = require("multer")();
 /**
  * @swagger
- * /api/v1/users:
+ * /api/v1/galery:
  *   post:
  *     security:
  *      - bearerAuth: []
  *     tags:
  *      - "User"
- *     summary: example to create user
+ *     summary: Upload image
  *     requestBody:
  *        required: true
  *        content:
