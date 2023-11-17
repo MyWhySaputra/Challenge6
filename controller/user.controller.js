@@ -1,5 +1,5 @@
 const { ResponseTemplate } = require('../helper/template.helper')
-const imagekit = require('../lib/imagekit')
+const imagekit = require('../library/imagekit')
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
@@ -8,44 +8,36 @@ async function Upload(req, res) {
     const { title, description } = req.body
     
     try {
-
-        const payload = {
-            user_id: req.user.id,
-            title,
-            description,
-            url: uploadFile.url
-        }
         
         const stringFile = req.file.buffer.toString("base64");
-
+    
         const uploadFile = await imagekit.upload({
             fileName: req.file.originalname,
             file: stringFile,
         });
-        
+
         await prisma.images.create({
-            data: payload
+            data: {
+                user_id: req.user.id,
+                title,
+                description,
+                url: uploadFile.url
+            }
+            
         });
 
-        const imagesView = await prisma.images.findUnique({
-            where: {
-                user_id: payload.user_id
-            },
-            select: {
-                title: true,
-                description: true,
-                url: true
-            },
-        });
+        const imagesView = {
+            title,
+            description,
+            url: uploadFile.url
+        }
 
         let resp = ResponseTemplate(imagesView, 'success', null, 200)
         res.status(200).json(resp);
         return
 
     } catch (error) {
-        let resp = ResponseTemplate(null, 'internal server error', error, 500)
-        res.status(500).json(resp)
-        return
+        return error
     }
 }
 

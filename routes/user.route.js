@@ -6,7 +6,7 @@ const { Auth } = require('../middleware/middleware')
 const multer = require("multer")();
 /**
  * @swagger
- * /api/v2/users:
+ * /api/v1/users:
  *   post:
  *     security:
  *      - bearerAuth: []
@@ -44,8 +44,10 @@ router.post('/users/', Auth, multer.single("images"), Upload)
 
 /**
  * @swagger
- * /api/v2/users/:
+ * /api/v1/users:
  *   get:
+ *     security:
+ *      - bearerAuth: []
  *     tags:
  *      - "User"
  *     summary: Get all user
@@ -78,8 +80,10 @@ router.get('/users/', Auth, GetAll)
 
 /**
  * @swagger
- * /api/v2/users/{id}:
+ * /api/v1/users/{id}:
  *   get:
+ *     security:
+ *      - bearerAuth: []
  *     tags:
  *      - "User"
  *     summary: Get one user
@@ -100,8 +104,10 @@ router.get('/users/:id', Auth, GetDetailById)
 
 /**
  * @swagger
- * /api/v2/users/{id}:
+ * /api/v1/users/{id}:
  *   put:
+ *     security:
+ *      - bearerAuth: []
  *     tags:
  *      - "User"
  *     summary: Get one user
@@ -141,8 +147,10 @@ router.put('/users/:id', Auth, UpdateImage)
 
 /**
  * @swagger
- * /api/v2/users/{id}:
+ * /api/v1/users/{id}:
  *   delete:
+ *     security:
+ *      - bearerAuth: []
  *     tags:
  *      - "User"
  *     summary: Get one user
