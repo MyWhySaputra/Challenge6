@@ -16,22 +16,17 @@ const multer = require("multer")();
  *     requestBody:
  *        required: true
  *        content:
- *          application/json:
+ *          multipart/form-data:
  *            schema:
  *              type: object
  *              properties:
- *                name:
+ *                title:
  *                  type: string
- *                email:
+ *                description:
  *                  type: string
- *                password:
+ *                images:
  *                  type: string
- *                identity_type:
- *                  type: string
- *                identity_number:
- *                  type: string
- *                address:
- *                  type: string
+ *                  format: binary
  *     responses:
  *       200:
  *         description: Successful response
@@ -50,24 +45,18 @@ router.post('/users/', Auth, multer.single("images"), Upload)
  *      - bearerAuth: []
  *     tags:
  *      - "User"
- *     summary: Get all user
+ *     summary: Get all images
  *     parameters:
  *       - in: query
- *         name: name
+ *         name: title
  *         required: false
- *         description: The name of the user
+ *         description: The title of image
  *         schema:
  *           type: string
  *       - in: query
- *         name: email
+ *         name: description
  *         required: false
- *         description: The email of the user
- *         schema:
- *           type: string
- *       - in: query
- *         name: password
- *         required: false
- *         description: The password of the user
+ *         description: The description of image
  *         schema:
  *           type: string
  *     responses:
@@ -86,12 +75,12 @@ router.get('/users/', Auth, GetAll)
  *      - bearerAuth: []
  *     tags:
  *      - "User"
- *     summary: Get one user
+ *     summary: Get one images
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         description: The ID of the user
+ *         description: The ID of Image
  *         schema:
  *           type: integer
  *     responses:
@@ -115,7 +104,7 @@ router.get('/users/:id', Auth, GetDetailById)
  *       - in: path
  *         name: id
  *         required: true
- *         description: The ID of the user
+ *         description: The ID of Image
  *         schema:
  *           type: integer
  *     requestBody:
@@ -125,17 +114,9 @@ router.get('/users/:id', Auth, GetDetailById)
  *            schema:
  *              type: object
  *              properties:
- *                name:
+ *                title:
  *                  type: string
- *                email:
- *                  type: string
- *                password:
- *                  type: string
- *                identity_type:
- *                  type: string
- *                identity_number:
- *                  type: string
- *                address:
+ *                description:
  *                  type: string
  *     responses:
  *       200:
@@ -153,12 +134,12 @@ router.put('/users/:id', Auth, UpdateImage)
  *      - bearerAuth: []
  *     tags:
  *      - "User"
- *     summary: Get one user
+ *     summary: Delete one images
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         description: The ID of the user
+ *         description: The ID of Image
  *         schema:
  *           type: integer
  *     responses:
