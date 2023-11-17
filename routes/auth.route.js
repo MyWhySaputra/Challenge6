@@ -4,7 +4,7 @@ const { Create, Login } = require('../controller/auth.controller')
 
 /**
  * @swagger
- * /api/v2/auth/create:
+ * /api/v1/auth/create:
  *   post:
  *     tags:
  *      - "Auth"
@@ -34,7 +34,7 @@ router.post('/auth/create', Create)
 
 /**
  * @swagger
- * /api/v2/users/login:
+ * /api/v1/users/login:
  *   post:
  *     tags:
  *      - "Auth"
