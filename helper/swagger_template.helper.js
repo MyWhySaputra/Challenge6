@@ -18,6 +18,15 @@ const swaggerDefinition = {
             },
 
         ],
+        components: {
+            securitySchemes: {
+                bearerAuth: {
+                    type: 'http',
+                    scheme: 'bearer',
+                    bearerFormat: 'JWT'
+                }
+            }
+        }
     },
     apis: [
         './routes/user.route.js',

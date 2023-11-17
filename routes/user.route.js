@@ -8,6 +8,8 @@ const multer = require("multer")();
  * @swagger
  * /api/v2/users:
  *   post:
+ *     security:
+ *      - bearerAuth: []
  *     tags:
  *      - "User"
  *     summary: example to create user
