@@ -8,13 +8,13 @@ const swaggerDefinition = {
         },
         servers: [
             {
+                url: 'https://challenge6-production-95ae.up.railway.app/'
+            },
+            {
                 url: 'http://localhost:8080',
             },
             {
                 url: 'http://localhost:3000',
-            },
-            {
-                url: 'https://challenge6-production-95ae.up.railway.app/'
             },
 
         ],
