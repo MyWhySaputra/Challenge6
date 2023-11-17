@@ -13,6 +13,9 @@ const swaggerDefinition = {
             {
                 url: 'http://localhost:3000',
             },
+            {
+                url: 'https://challenge6-production-95ae.up.railway.app/'
+            },
 
         ],
     },
