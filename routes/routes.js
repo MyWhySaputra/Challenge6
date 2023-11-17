@@ -1,12 +1,12 @@
 const express = require('express')
-const userRoute = require('./user.route')
+const galeryRoute = require('./galery.route')
 const authRoute = require('./auth.route')
 const morgan = require('morgan')
 
 // version 1 
 const v1 = express.Router()
 v1.use(morgan('dev'));
-v1.use('/', [userRoute, authRoute])
+v1.use('/', [galeryRoute, authRoute])
 
 const router = express.Router()
 router.use('/api/v1', v1)

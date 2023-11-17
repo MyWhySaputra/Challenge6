@@ -21,18 +21,18 @@ const swaggerDefinition = {
         components: {
             securitySchemes: {
                 bearerAuth: {
-                    type: 'http',
-                    scheme: 'bearer',
+                    type: 'apiKey',
+                    in: 'header',
+                    name: "Authorization",
+                    description: "Input your Token for Get Access",
                     bearerFormat: 'JWT'
                 }
             }
         }
     },
     apis: [
-        './routes/user.route.js',
-        './routes/bank.account.route.js',
-        './routes/transaction.route.js',
-        './routes/auth.route.js'
+        './routes/auth.route.js',
+        './routes/galery.route.js',
     ],
 
 }

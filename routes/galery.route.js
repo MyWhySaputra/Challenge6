@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { Upload, GetAll, GetDetailById, UpdateImage, DeleteImage } = require('../controller/user.controller')
+const { Upload, GetAll, GetDetailById, UpdateImage, DeleteImage } = require('../controller/galery.controller')
 const { Auth } = require('../middleware/middleware')
 
 const multer = require("multer")();
@@ -35,11 +35,11 @@ const multer = require("multer")();
  *       500:
  *         description: Internal server error
  */
-router.post('/users/', Auth, multer.single("images"), Upload)
+router.post('/galery/', Auth, multer.single("images"), Upload)
 
 /**
  * @swagger
- * /api/v1/users:
+ * /api/v1/galery:
  *   get:
  *     security:
  *      - bearerAuth: []
@@ -65,11 +65,11 @@ router.post('/users/', Auth, multer.single("images"), Upload)
  *       404:
  *         description: Not found
  */
-router.get('/users/', Auth, GetAll)
+router.get('/galery/', Auth, GetAll)
 
 /**
  * @swagger
- * /api/v1/users/{id}:
+ * /api/v1/galery/{id}:
  *   get:
  *     security:
  *      - bearerAuth: []
@@ -89,11 +89,11 @@ router.get('/users/', Auth, GetAll)
  *       404:
  *         description: Not found
  */
-router.get('/users/:id', Auth, GetDetailById)
+router.get('/galery/:id', Auth, GetDetailById)
 
 /**
  * @swagger
- * /api/v1/users/{id}:
+ * /api/v1/galery/{id}:
  *   put:
  *     security:
  *      - bearerAuth: []
@@ -124,11 +124,11 @@ router.get('/users/:id', Auth, GetDetailById)
  *       400:
  *         description: Bad request
  */
-router.put('/users/:id', Auth, UpdateImage)
+router.put('/galery/:id', Auth, UpdateImage)
 
 /**
  * @swagger
- * /api/v1/users/{id}:
+ * /api/v1/galery/{id}:
  *   delete:
  *     security:
  *      - bearerAuth: []
@@ -148,7 +148,7 @@ router.put('/users/:id', Auth, UpdateImage)
  *       404:
  *         description: Not found
  */
-router.delete('/users/:id', Auth, DeleteImage)
+router.delete('/galery/:id', Auth, DeleteImage)
 
 
 module.exports = router

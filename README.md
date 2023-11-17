@@ -20,3 +20,21 @@
 ## ERD
 
 ![Tux, the Linux](/ERD.png)
+
+## Deploy in Railway
+
+# Create account
+- [x] https://challenge6-production-95ae.up.railway.app/api/v1/auth/create
+# login account
+- [x] https://challenge6-production-95ae.up.railway.app/api/v1/auth/login
+
+# POST image
+- [x] https://challenge6-production-95ae.up.railway.app/api/v1/galery
+# GET all images
+- [x] https://challenge6-production-95ae.up.railway.app/api/v1/galery
+# GET image by id
+- [x] https://challenge6-production-95ae.up.railway.app/api/v1/galery/:id
+# PUT (update) by id
+- [x] https://challenge6-production-95ae.up.railway.app/api/v1/galery/:id
+# DELETE by id
+- [x] https://challenge6-production-95ae.up.railway.app/api/v1/galery/:id
