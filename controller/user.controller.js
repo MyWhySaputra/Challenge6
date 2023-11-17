@@ -1,26 +1,27 @@
 const { ResponseTemplate } = require('../helper/template.helper')
-const imagekit = require('../lib/imagekit');
+const imagekit = require('../lib/imagekit')
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 async function Upload(req, res) {
-    const stringFile = req.file.buffer.toString("base64")
-
-    const uploadFile = await imagekit.upload({
-        fileName: req.file.originalname,
-        file: stringFile,
-    });
-
+    
     const { title, description } = req.body
-
-    const payload = {
-        user_id: req.user.id,
-        title,
-        description,
-        url: uploadFile.url
-    }
-
+    
     try {
+
+        const payload = {
+            user_id: req.user.id,
+            title,
+            description,
+            url: uploadFile.url
+        }
+        
+        const stringFile = req.file.buffer.toString("base64");
+
+        const uploadFile = await imagekit.upload({
+            fileName: req.file.originalname,
+            file: stringFile,
+        });
         
         await prisma.images.create({
             data: payload

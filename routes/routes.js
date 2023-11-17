@@ -12,6 +12,6 @@ const router = express.Router()
 router.use('/api/v1', v1)
 
 // default version
-router.use('/api', v2)
+router.use('/api', v1)
 
 module.exports = router
