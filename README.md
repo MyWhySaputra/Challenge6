@@ -21,6 +21,10 @@
 
 ![Tux, the Linux](/ERD.png)
 
+## Swagger
+
+- [x] https://challenge6-production-95ae.up.railway.app/docs/
+
 ## Deploy in Railway
 
 ### Create account
