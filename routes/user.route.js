@@ -9,7 +9,7 @@ const multer = require("multer")();
  * /api/v1/users:
  *   post:
  *     security:
- *      - bearerAuth: []
+ *      - authorization: []
  *     tags:
  *      - "User"
  *     summary: example to create user
@@ -42,7 +42,7 @@ router.post('/users/', Auth, multer.single("images"), Upload)
  * /api/v1/users:
  *   get:
  *     security:
- *      - bearerAuth: []
+ *      - authorization: []
  *     tags:
  *      - "User"
  *     summary: Get all images
@@ -72,7 +72,7 @@ router.get('/users/', Auth, GetAll)
  * /api/v1/users/{id}:
  *   get:
  *     security:
- *      - bearerAuth: []
+ *      - authorization: []
  *     tags:
  *      - "User"
  *     summary: Get one images
@@ -96,7 +96,7 @@ router.get('/users/:id', Auth, GetDetailById)
  * /api/v1/users/{id}:
  *   put:
  *     security:
- *      - bearerAuth: []
+ *      - authorization: []
  *     tags:
  *      - "User"
  *     summary: Get one user
@@ -131,7 +131,7 @@ router.put('/users/:id', Auth, UpdateImage)
  * /api/v1/users/{id}:
  *   delete:
  *     security:
- *      - bearerAuth: []
+ *      - authorization: []
  *     tags:
  *      - "User"
  *     summary: Delete one images
