@@ -22,12 +22,6 @@ const { Create, Login } = require('../controller/auth.controller')
  *                  type: string
  *                password:
  *                  type: string
- *                identity_type:
- *                  type: string
- *                identity_number:
- *                  type: string
- *                address:
- *                  type: string
  *     responses:
  *       200:
  *         description: Successful response
