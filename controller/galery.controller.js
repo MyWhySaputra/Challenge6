@@ -185,6 +185,10 @@ async function DeleteImage(req, res) {
 
     const { id } = req.params
 
+    const payload = {
+        deletedAt: new Date(),
+    };
+
     try {
 
         const checkImage = await prisma.images.findFirst({
@@ -199,13 +203,14 @@ async function DeleteImage(req, res) {
             return
         }
 
-        await prisma.images.delete({
+        await prisma.images.update({
             where: {
                 id: Number(id)
             },
+            data: payload
         })
 
-        let resp = ResponseTemplate(null, 'data deleted', null, 200)
+        let resp = ResponseTemplate(null, 'soft delete success', null, 200)
         res.status(200).json(resp)
         return
 
