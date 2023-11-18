@@ -13,4 +13,3 @@ jobs:
       - run: npm install nodemon prisma --save-dev
       - run: npm install bcrypt express imagekit joi jsonwebtoken morgan multer swagger-jsdoc swagger-ui-express
       - run: bats -v
-      - run: npx prisma migrate dev --name database
