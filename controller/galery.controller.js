@@ -47,11 +47,14 @@ async function GetAll(req, res) {
 
     const user_id = req.user.id
 
+    const deletedAt = null
+
     const payload = {}
     
     if (user_id) payload.user_id = user_id
     if (title) payload.title = title
     if (description) payload.description = description
+    if (deletedAt) payload.deletedAt = deletedAt
 
     try {
         const skip = ( page - 1 ) * limit
@@ -109,11 +112,14 @@ async function GetDetailById(req, res) {
 
     const user_id = req.user.id
 
+    const deletedAt = null
+
     try {
         const images = await prisma.images.findUnique({
             where: {
                 id: Number(id),
-                user_id: user_id
+                user_id: user_id,
+                deletedAt: deletedAt
             },
             select: {
                 id: true,
