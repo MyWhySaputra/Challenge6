@@ -83,7 +83,8 @@ async function Login(req, res) {
         const token = jwt.sign({
             id: checkUser.id,
             email: checkUser.email,
-        }, process.env.SECRET_KEY);
+        }, process.env.SECRET_KEY,
+            {expiresIn: '24h'});
 
         let resp = ResponseTemplate(token, 'success', null, 200)
         res.status(200).json(resp)
